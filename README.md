@@ -9,33 +9,33 @@ This project is designed in an interactive way to illustrate SQL skills and tech
 
 Objectives
 
-    Set up a retail sales database: Create and inhabit a retail sales database with the provided sales data.
-    Data Cleaning: Identify and discard any records with missing or null values.
-    Exploratory Data Analysis (EDA): Perform basic exploratory data analysis to understand the dataset.
-    Business Analysis: Use SQL to answer specific business questions and extract insights from the sales data.
+Set up a retail sales database: Create and inhabit a retail sales database with the provided sales data.
+Data Cleaning: Identify and discard any records with missing or null values.
+Exploratory Data Analysis (EDA): Perform basic exploratory data analysis to understand the dataset.
+Business Analysis: Use SQL to answer specific business questions and extract insights from the sales data.
 
 Project Structure
 1. Database Setup
+    
+        Database Creation: The project starts by creating a database named SQL-Retail Sales Analysis_utf.
+        Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
-    Database Creation: The project starts by creating a database named SQL-Retail Sales Analysis_utf.
-    Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
-
-CREATE DATABASE p1_retail_db;
-
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
-);
+        CREATE DATABASE p1_retail_db;
+        
+        CREATE TABLE retail_sales
+        (
+            transactions_id INT PRIMARY KEY,
+            sale_date DATE,	
+            sale_time TIME,
+            customer_id INT,	
+            gender VARCHAR(10),
+            age INT,
+            category VARCHAR(35),
+            quantity INT,
+            price_per_unit FLOAT,	
+            cogs FLOAT,
+            total_sale FLOAT
+        );
 
 2. Data Exploration & Cleaning
 
@@ -72,15 +72,15 @@ WHERE sale_date = '2022-11-05';
 
     Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022:
 
-SELECT 
-  *
-FROM retail_sales
-WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+        SELECT 
+          *
+        FROM retail_sales
+        WHERE 
+            category = 'Clothing'
+            AND 
+            TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
+            AND
+            quantity >= 4;
 
     Write a SQL query to calculate the total sales (total_sale) for each category.:
 
@@ -93,10 +93,10 @@ GROUP BY 1
 
     Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.:
 
-SELECT
-    ROUND(AVG(age), 2) as avg_age
-FROM retail_sales
-WHERE category = 'Beauty'
+        SELECT
+            ROUND(AVG(age), 2) as avg_age
+        FROM retail_sales
+        WHERE category = 'Beauty'
 
     Write a SQL query to find all transactions where the total_sale is greater than 1000.:
 
